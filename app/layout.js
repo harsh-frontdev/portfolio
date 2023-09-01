@@ -1,7 +1,11 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { REM } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const rem = REM({ 
+  weight: ['300', '400', '500', '600'],
+  subsets: ['latin'], 
+  display: 'swap', 
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,7 +15,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link href="https://fonts.googleapis.com/css2?family=REM:wght@300;400;500;600&display=swap" rel="stylesheet" />
+      </head>
+      <body className={rem.className}>{children}</body>
     </html>
   )
 }
